@@ -22,7 +22,7 @@ public class GameController {
     private GameService gameService;
 
     @Autowired
-    public void setCostService(GameService gameService) {
+    public void setGameService(GameService gameService) {
         this.gameService = gameService;
     }
 
@@ -36,7 +36,7 @@ public class GameController {
         return modelAndView;
     }
     @RequestMapping(value="/deleteGame/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteCost(@PathVariable("id") int id) {
+    public ModelAndView deleteGame(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
         Game game = gameService.getById(id);
         gameService.delete(game);
@@ -46,7 +46,7 @@ public class GameController {
 
 
     @RequestMapping(value = "/addGame/{id_u}", method = RequestMethod.GET)
-    public ModelAndView addPageCost(@PathVariable("id_u") int id_u) {
+    public ModelAndView addPageGame(@PathVariable("id_u") int id_u) {
         ModelAndView modelAndView = new ModelAndView();
         Game game= new Game();
         game.setId_user(id_u);
@@ -80,7 +80,7 @@ public class GameController {
     }
 
     @RequestMapping(value = "/addResult", method = RequestMethod.POST)
-    public ModelAndView addCost(@ModelAttribute("result") Result result) {
+    public ModelAndView addResult(@ModelAttribute("result") Result result) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/results/"+result.getId_game());
         gameService.add(result);

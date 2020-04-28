@@ -1,7 +1,9 @@
 create table users
 (
     id int(8) auto_increment primary key,
-    fname varchar(20) not null
+    fname varchar(20) not null,
+    login varchar(20) not null,
+    password varchar(20) not null
 );
 create table games
 (
